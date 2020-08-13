@@ -14,6 +14,8 @@
       <li class="nav-item"><a href="#" class="nav-link">Tasks</a></li>
     </ul>
   </div>
-  <%= link_to 'ユーザー編集', edit_user_path(@user),class: "btn btn-secondary"  %>
-  <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+    <% if current_user.id  == @user.id %>
+      <%= link_to 'ユーザー編集', edit_user_path(@user),class: "btn btn-secondary"  %>
+      <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+    <% end %>
 </div>
